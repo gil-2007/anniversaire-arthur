@@ -1,0 +1,1078 @@
+
+/* =========================================
+   1. CONFIGURATION GÉNÉRALE
+========================================= */
+
+:root {
+    --background: #070914;
+    --background-light: #101426;
+    --gold: #c9a96e;
+    --gold-light: #f0d9a5;
+    --gold-dark: #80633a;
+    --white: #f7f3eb;
+    --muted: #a4a5b5;
+    --blue: #182a50;
+    --serif: 'Cormorant Garamond', serif;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Italiana', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--white);
+    font-family: var(--sans);
+    overflow-x: hidden;
+    position: relative;
+}
+
+button {
+    font-family: inherit;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 5px;
+}
+
+::selection {
+    background: var(--gold);
+    color: var(--background);
+}
+
+
+/* =========================================
+   2. UNIVERS COSMIQUE
+========================================= */
+
+.cosmic-scene {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.nebula {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.16;
+}
+
+.nebula-one {
+    background: #263c80;
+    top: -200px;
+    left: -150px;
+}
+
+.nebula-two {
+    background: #805b85;
+    bottom: -250px;
+    right: -150px;
+}
+
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.65;
+}
+
+.planet-one {
+    width: 95px;
+    height: 95px;
+    top: 18%;
+    right: 12%;
+    background: radial-gradient(circle at 30% 30%, #e9d4a4, #8d6c47 50%, #30263b);
+    box-shadow: inset -15px -12px 25px #080b1b;
+    animation: floatPlanet 9s ease-in-out infinite;
+}
+
+.planet-ring {
+    position: absolute;
+    width: 150px;
+    height: 35px;
+    border: 3px solid rgba(224, 196, 141, 0.65);
+    border-radius: 50%;
+    top: 30px;
+    left: -28px;
+    transform: rotate(-20deg);
+}
+
+.planet-two {
+    width: 45px;
+    height: 45px;
+    bottom: 20%;
+    left: 9%;
+    background: radial-gradient(circle at 30% 30%, #7c9db8, #243d64 65%, #101426);
+    box-shadow: inset -9px -7px 15px #070914;
+    animation: floatPlanet 12s ease-in-out infinite reverse;
+}
+
+.planet-three {
+    width: 20px;
+    height: 20px;
+    top: 60%;
+    right: 7%;
+    background: radial-gradient(circle at 30% 30%, #d9c18d, #80633a);
+    animation: floatPlanet 7s ease-in-out infinite;
+}
+
+.cosmic-star {
+    position: absolute;
+    border-radius: 50%;
+    background: #fff8df;
+    box-shadow: 0 0 7px rgba(255, 238, 194, 0.8);
+    animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes floatPlanet {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-18px);
+    }
+}
+
+.ambient-light {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse at 50% 50%, transparent 15%, rgba(4, 6, 17, 0.6) 100%);
+}
+
+
+/* =========================================
+   3. NAVIGATION
+========================================= */
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 28px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    border-bottom: 1px solid rgba(201, 169, 110, 0.12);
+}
+
+.logo {
+    color: var(--gold-light);
+    font-family: var(--display);
+    font-size: 34px;
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--white);
+}
+
+.nav-label {
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+.nav-indicator {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--gold-light);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.nav-indicator span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 10px var(--gold);
+}
+
+
+/* =========================================
+   4. ÉCRANS
+========================================= */
+
+.screen {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 130px 20px 90px;
+    animation: screenAppear 0.8s ease both;
+}
+
+.screen.active {
+    display: flex;
+}
+
+@keyframes screenAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content,
+.celebration-content,
+.letter-content {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 28px;
+}
+
+.eyebrow-line {
+    width: 35px;
+    height: 1px;
+    background: var(--gold-dark);
+}
+
+
+/* =========================================
+   5. ACCUEIL
+========================================= */
+
+.intro-text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--muted);
+    margin-bottom: 15px;
+}
+
+.hero-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 0.95;
+}
+
+.title-small {
+    font-family: var(--sans);
+    font-size: clamp(13px, 2vw, 18px);
+    font-weight: 500;
+    letter-spacing: 13px;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+}
+
+.title-large {
+    font-family: var(--display);
+    font-size: clamp(48px, 10vw, 105px);
+    letter-spacing: 3px;
+    color: var(--white);
+    text-shadow: 0 0 35px rgba(201, 169, 110, 0.12);
+}
+
+.title-name {
+    font-family: var(--serif);
+    font-size: clamp(48px, 9vw, 88px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gold);
+    letter-spacing: 9px;
+    margin-top: 10px;
+}
+
+.hero-description {
+    color: #b8b8c7;
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.7;
+    margin: 28px auto 32px;
+}
+
+.hero-description span {
+    color: var(--gold-light);
+    font-style: italic;
+}
+
+.countdown-container {
+    margin: 30px 0;
+}
+
+.countdown-title {
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 65px;
+}
+
+.time-box span {
+    font-family: var(--display);
+    font-size: 35px;
+    color: var(--white);
+}
+
+.time-box small {
+    color: var(--muted);
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.time-separator {
+    color: var(--gold);
+    font-size: 25px;
+    margin-top: -12px;
+}
+
+.main-button,
+.secondary-button,
+.back-button {
+    border: 1px solid var(--gold-dark);
+    background: linear-gradient(120deg, rgba(201, 169, 110, 0.15), rgba(201, 169, 110, 0.04));
+    color: var(--gold-light);
+    cursor: pointer;
+    transition: 0.35s ease;
+    letter-spacing: 2px;
+}
+
+.main-button {
+    padding: 17px 28px;
+    min-width: 250px;
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+.main-button span {
+    margin-left: 20px;
+    font-size: 17px;
+}
+
+.main-button:hover,
+.secondary-button:hover,
+.back-button:hover {
+    background: var(--gold);
+    color: var(--background);
+    box-shadow: 0 0 25px rgba(201, 169, 110, 0.25);
+    transform: translateY(-3px);
+}
+
+.hero-footer {
+    color: #77798c;
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-top: 35px;
+}
+
+.side-note {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    writing-mode: vertical-rl;
+    transform: translateY(-50%);
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: #77798c;
+}
+
+
+/* =========================================
+   6. CÉLÉBRATION
+========================================= */
+
+.celebration-content {
+    max-width: 800px;
+}
+
+.chapter-label {
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+
+.celebration-title,
+.letter-heading {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(43px, 7vw, 75px);
+    line-height: 0.98;
+    color: var(--white);
+}
+
+.celebration-title span,
+.letter-heading span {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.celebration-description {
+    font-family: var(--serif);
+    font-size: 19px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+.cake-area {
+    margin: 35px auto 20px;
+    position: relative;
+    width: 280px;
+    height: 220px;
+}
+
+.cake-glow {
+    position: absolute;
+    width: 250px;
+    height: 140px;
+    background: rgba(201, 169, 110, 0.16);
+    filter: blur(55px);
+    border-radius: 50%;
+    bottom: 0;
+    left: 15px;
+}
+
+.cake {
+    position: absolute;
+    width: 190px;
+    height: 150px;
+    bottom: 25px;
+    left: 45px;
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.cake-plate {
+    position: absolute;
+    width: 220px;
+    height: 18px;
+    bottom: 0;
+    left: -15px;
+    border-radius: 50%;
+    background: linear-gradient(#f2e1c0, #8e7049);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.cake-bottom {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    width: 190px;
+    height: 55px;
+    border-radius: 8px 8px 15px 15px;
+    background: linear-gradient(90deg, #503044, #a06b6c, #513047);
+    box-shadow: inset 0 -9px 0 rgba(0, 0, 0, 0.15);
+}
+
+.cake-middle {
+    position: absolute;
+    bottom: 60px;
+    left: 10px;
+    width: 170px;
+    height: 45px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #d0a878, #f2d9aa, #a77b52);
+}
+
+.cake-top {
+    position: absolute;
+    bottom: 95px;
+    left: 10px;
+    width: 170px;
+    height: 25px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #8f5c57, #e8c9a4, #80504e);
+    z-index: 2;
+}
+
+.candles {
+    position: absolute;
+    z-index: 5;
+    bottom: 117px;
+    left: 63px;
+    display: flex;
+    gap: 18px;
+}
+
+.candle {
+    width: 9px;
+    height: 42px;
+    border-radius: 3px;
+    background: repeating-linear-gradient(
+        45deg,
+        #f6e7c9,
+        #f6e7c9 5px,
+        #a87b4c 5px,
+        #a87b4c 9px
+    );
+    position: relative;
+}
+
+.flame {
+    position: absolute;
+    width: 12px;
+    height: 20px;
+    border-radius: 50% 50% 50% 50%;
+    background: radial-gradient(circle at 50% 70%, #fff4a3, #f7a62b 55%, #e75c22);
+    top: -22px;
+    left: -1px;
+    transform-origin: bottom center;
+    animation: flameMove 0.7s infinite alternate ease-in-out;
+    filter: drop-shadow(0 0 7px #f5a52d);
+}
+
+@keyframes flameMove {
+    from {
+        transform: rotate(-5deg) scale(0.95);
+    }
+    to {
+        transform: rotate(5deg) scale(1.08);
+    }
+}
+
+.cake-caption {
+    position: absolute;
+    width: 100%;
+    bottom: -18px;
+    color: var(--gold-light);
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.cake-instruction {
+    position: absolute;
+    width: 100%;
+    bottom: -42px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.secondary-button {
+    padding: 13px 23px;
+    font-size: 9px;
+    margin-top: 25px;
+}
+
+.secondary-button span {
+    margin-right: 8px;
+}
+
+.wish-message {
+    color: var(--gold-light);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    margin-top: 15px;
+    min-height: 25px;
+}
+
+.letter-button {
+    margin-top: 25px;
+}
+
+
+/* =========================================
+   7. LETTRE ET ENVELOPPE
+========================================= */
+
+.letter-content {
+    max-width: 760px;
+}
+
+.letter-kicker {
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+
+.letter-heading {
+    margin-bottom: 20px;
+}
+
+.envelope-container {
+    width: 270px;
+    margin: 30px auto 25px;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.envelope {
+    width: 230px;
+    height: 145px;
+    position: relative;
+    margin: auto;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: #8c6b45;
+    border-radius: 5px;
+}
+
+.letter-paper {
+    position: absolute;
+    width: 190px;
+    height: 120px;
+    left: 20px;
+    bottom: 5px;
+    background: #f0e3c9;
+    color: #473b30;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: var(--serif);
+    transition: transform 0.8s ease;
+}
+
+.letter-paper span {
+    font-size: 17px;
+}
+
+.letter-paper small {
+    font-size: 11px;
+    font-style: italic;
+}
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: linear-gradient(135deg, #b08a5c, #735235);
+    clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%);
+}
+
+.envelope-flap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 4;
+    background: linear-gradient(135deg, #d0ad7b, #8b6743);
+    clip-path: polygon(0 0, 100% 0, 50% 60%);
+    transform-origin: top center;
+    transition: transform 0.8s ease;
+}
+
+.envelope-seal {
+    position: absolute;
+    z-index: 5;
+    top: 58px;
+    left: 100px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #22243a;
+    color: var(--gold-light);
+    font-family: var(--display);
+    font-size: 17px;
+    border: 1px solid var(--gold);
+    transition: opacity 0.3s ease;
+}
+
+.envelope-hint {
+    color: var(--muted);
+    font-size: 10px;
+    margin-top: 25px;
+    letter-spacing: 1px;
+}
+
+.envelope-container.opened .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope-container.opened .letter-paper {
+    transform: translateY(-85px);
+    z-index: 5;
+}
+
+.envelope-container.opened .envelope-seal {
+    opacity: 0;
+}
+
+.full-letter {
+    display: none;
+    max-width: 650px;
+    margin: 30px auto;
+    animation: letterReveal 1s ease both;
+}
+
+.full-letter.visible {
+    display: block;
+}
+
+@keyframes letterReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.letter-paper-full {
+    background: #f0e6d3;
+    color: #3b3028;
+    padding: 45px 48px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.letter-date {
+    font-family: var(--sans);
+    color: #96764d;
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-bottom: 28px;
+}
+
+.letter-paper-full h3 {
+    font-family: var(--serif);
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #60462e;
+}
+
+.letter-paper-full p {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.75;
+    margin-bottom: 17px;
+    position: relative;
+    z-index: 1;
+}
+
+.letter-paper-full .letter-highlight {
+    color: #795c38;
+    font-weight: 600;
+    font-style: italic;
+    border-left: 2px solid #b18a56;
+    padding-left: 15px;
+    margin: 25px 0;
+}
+
+.letter-paper-full .letter-ending {
+    font-weight: 700;
+    color: #795c38;
+    margin-top: 25px;
+}
+
+.signature {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    font-family: var(--serif);
+    font-style: italic;
+    color: #60462e;
+    font-size: 18px;
+}
+
+.signature strong {
+    font-size: 25px;
+    margin-top: 5px;
+}
+
+.letter-decoration {
+    position: absolute;
+    bottom: -55px;
+    right: 10px;
+    font-family: var(--display);
+    font-size: 200px;
+    color: rgba(160, 125, 80, 0.07);
+    pointer-events: none;
+}
+
+.letter-footer {
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin: 30px 0;
+}
+
+.back-button {
+    padding: 13px 20px;
+    font-size: 9px;
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   8. CONFETTIS
+========================================= */
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    width: 8px;
+    height: 12px;
+    z-index: 20;
+    pointer-events: none;
+    animation: confettiFall 4s linear forwards;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   9. PIED DE PAGE
+========================================= */
+
+.global-footer {
+    position: fixed;
+    z-index: 5;
+    bottom: 18px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #77798c;
+    font-size: 8px;
+    letter-spacing: 3px;
+    pointer-events: none;
+}
+
+.global-footer span {
+    color: var(--gold);
+}
+
+
+/* =========================================
+   10. RESPONSIVE : TÉLÉPHONES
+========================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 20px 6%;
+    }
+
+    .logo {
+        font-size: 27px;
+    }
+
+    .nav-label {
+        font-size: 7px;
+        letter-spacing: 1.5px;
+    }
+
+    .nav-indicator {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    .screen {
+        padding: 110px 17px 85px;
+    }
+
+    .eyebrow {
+        font-size: 8px;
+        letter-spacing: 2px;
+        gap: 8px;
+    }
+
+    .eyebrow-line {
+        width: 18px;
+    }
+
+    .intro-text {
+        font-size: 18px;
+    }
+
+    .title-small {
+        font-size: 12px;
+        letter-spacing: 8px;
+    }
+
+    .title-large {
+        font-size: clamp(42px, 11vw, 65px);
+        letter-spacing: 0;
+    }
+
+    .title-name {
+        font-size: 58px;
+        letter-spacing: 5px;
+    }
+
+    .hero-description {
+        font-size: 17px;
+    }
+
+    .countdown {
+        gap: 8px;
+    }
+
+    .time-box {
+        min-width: 48px;
+    }
+
+    .time-box span {
+        font-size: 28px;
+    }
+
+    .time-box small {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    .time-separator {
+        font-size: 19px;
+    }
+
+    .main-button {
+        padding: 15px 18px;
+        min-width: 220px;
+        font-size: 9px;
+    }
+
+    .side-note {
+        display: none;
+    }
+
+    .celebration-title,
+    .letter-heading {
+        font-size: 48px;
+    }
+
+    .celebration-description {
+        font-size: 17px;
+    }
+
+    .cake-area {
+        transform: scale(0.9);
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+
+    .letter-paper-full {
+        padding: 30px 23px;
+    }
+
+    .letter-paper-full p {
+        font-size: 16px;
+    }
+
+    .letter-paper-full h3 {
+        font-size: 26px;
+    }
+
+    .global-footer {
+        font-size: 7px;
+        letter-spacing: 2px;
+        bottom: 10px;
+    }
+
+    .planet-one {
+        width: 55px;
+        height: 55px;
+        right: 5%;
+        top: 15%;
+    }
+
+    .planet-ring {
+        width: 85px;
+        height: 23px;
+        top: 17px;
+        left: -15px;
+    }
+
+    .planet-two {
+        width: 30px;
+        height: 30px;
+        left: 4%;
+    }
+
+    .planet-three {
+        width: 13px;
+        height: 13px;
+    }
+
+    .nebula {
+        width: 300px;
+        height: 300px;
+        filter: blur(70px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}

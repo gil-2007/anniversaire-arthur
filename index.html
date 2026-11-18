@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#070914">
+    <meta name="description" content="Une célébration spéciale pour Arthur. Joyeux anniversaire !">
+    <title>Arthur | Un univers à part</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Italiana&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Décor cosmique -->
+    <div class="cosmic-scene" aria-hidden="true">
+        <div class="nebula nebula-one"></div>
+        <div class="nebula nebula-two"></div>
+        <div class="planet planet-one">
+            <div class="planet-ring"></div>
+        </div>
+        <div class="planet planet-two"></div>
+        <div class="planet planet-three"></div>
+    </div>
+
+    <div class="ambient-light"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">A<span>.</span></a>
+        <div class="nav-label">UNE CÉLÉBRATION SPÉCIALE</div>
+        <div class="nav-indicator">
+            <span></span> 20 NOVEMBRE
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- ÉCRAN 1 : ACCUEIL -->
+        <section class="screen hero-screen active" id="home">
+
+            <div class="hero-content">
+                <p class="eyebrow">
+                    <span class="eyebrow-line"></span>
+                    UN MOMENT CRÉÉ RIEN QUE POUR TOI
+                    <span class="eyebrow-line"></span>
+                </p>
+
+                <p class="intro-text">
+                    À une personne vraiment exceptionnelle...
+                </p>
+
+                <h1 class="hero-title">
+                    <span class="title-small">JOYEUX</span>
+                    <span class="title-large">ANNIVERSAIRE</span>
+                    <span class="title-name">ARTHUR</span>
+                </h1>
+
+                <p class="hero-description">
+                    Dans l'immensité de l'univers,<br>
+                    certaines rencontres sont de véritables étoiles.<br>
+                    <span>Et la tienne en fait partie.</span>
+                </p>
+
+                <div class="countdown-container">
+                    <p class="countdown-title">LA CÉLÉBRATION COMMENCE DANS</p>
+
+                    <div class="countdown">
+                        <div class="time-box">
+                            <span id="days">00</span>
+                            <small>JOURS</small>
+                        </div>
+                        <div class="time-separator">:</div>
+                        <div class="time-box">
+                            <span id="hours">00</span>
+                            <small>HEURES</small>
+                        </div>
+                        <div class="time-separator">:</div>
+                        <div class="time-box">
+                            <span id="minutes">00</span>
+                            <small>MINUTES</small>
+                        </div>
+                        <div class="time-separator">:</div>
+                        <div class="time-box">
+                            <span id="seconds">00</span>
+                            <small>SECONDES</small>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="main-button" id="enterButton">
+                    ENTRER DANS TON UNIVERS
+                    <span>→</span>
+                </button>
+
+                <p class="hero-footer">
+                    CRÉÉ AVEC AMOUR · POUR ARTHUR
+                </p>
+            </div>
+
+            <div class="side-note">
+                UNE HISTOIRE DE FRATERNITÉ · POUR TOUJOURS
+            </div>
+        </section>
+
+
+        <!-- ÉCRAN 2 : CÉLÉBRATION -->
+        <section class="screen celebration-screen" id="celebration">
+
+            <div class="celebration-content">
+
+                <p class="eyebrow">
+                    <span class="eyebrow-line"></span>
+                    AUJOURD'HUI, TOUT EST POUR TOI
+                    <span class="eyebrow-line"></span>
+                </p>
+
+                <p class="chapter-label">UN NOUVEAU CHAPITRE COMMENCE</p>
+
+                <h2 class="celebration-title">
+                    Le monde est plus beau<br>
+                    <span>avec toi.</span>
+                </h2>
+
+                <p class="celebration-description">
+                    Une nouvelle année, de nouveaux rêves,<br>
+                    de nouvelles aventures à conquérir.
+                </p>
+
+                <!-- Gâteau -->
+                <div class="cake-area">
+                    <div class="cake-glow"></div>
+
+                    <div class="cake">
+                        <div class="candles">
+                            <div class="candle">
+                                <div class="flame"></div>
+                            </div>
+                            <div class="candle">
+                                <div class="flame"></div>
+                            </div>
+                            <div class="candle">
+                                <div class="flame"></div>
+                            </div>
+                        </div>
+
+                        <div class="cake-top"></div>
+                        <div class="cake-middle"></div>
+                        <div class="cake-bottom"></div>
+                        <div class="cake-plate"></div>
+                    </div>
+
+                    <p class="cake-caption">JOYEUX ANNIVERSAIRE, ARTHUR</p>
+                    <p class="cake-instruction">Fais un vœu et souffle sur les bougies ✨</p>
+                </div>
+
+                <button class="secondary-button" id="blowButton">
+                    <span>✦</span> SOUFFLER LES BOUGIES
+                </button>
+
+                <p class="wish-message" id="wishMessage">
+                    Que tous tes rêves trouvent leur chemin jusqu'à toi.
+                </p>
+
+                <button class="main-button letter-button" id="letterButton">
+                    OUVRIR TA LETTRE PERSONNELLE
+                    <span>→</span>
+                </button>
+
+            </div>
+        </section>
+
+
+        <!-- ÉCRAN 3 : LETTRE -->
+        <section class="screen letter-screen" id="letter">
+
+            <div class="letter-content">
+
+                <p class="eyebrow">
+                    <span class="eyebrow-line"></span>
+                    DES MOTS QUI VIENNENT DU CŒUR
+                    <span class="eyebrow-line"></span>
+                </p>
+
+                <p class="letter-kicker">À MON FRÈRE DE CŒUR</p>
+
+                <h2 class="letter-heading">
+                    Une lettre<br>
+                    <span>pour Arthur.</span>
+                </h2>
+
+                <div class="envelope-container" id="envelopeContainer">
+
+                    <div class="envelope" id="envelope">
+
+                        <div class="envelope-back"></div>
+
+                        <div class="letter-paper">
+                            <span>À mon frère, Arthur.</span>
+                            <small>Une pensée sincère...</small>
+                        </div>
+
+                        <div class="envelope-front"></div>
+                        <div class="envelope-flap"></div>
+
+                        <div class="envelope-seal">A</div>
+                    </div>
+
+                    <p class="envelope-hint" id="envelopeHint">
+                        Appuie sur l'enveloppe pour découvrir ton message.
+                    </p>
+                </div>
+
+                <article class="full-letter" id="fullLetter">
+
+                    <div class="letter-paper-full">
+
+                        <p class="letter-date">20 NOVEMBRE 2026</p>
+
+                        <h3>Mon cher Arthur,</h3>
+
+                        <p>
+                            Aujourd'hui est un jour particulier. Ce n'est pas
+                            simplement une date de plus sur le calendrier,
+                            c'est le jour où une personne exceptionnelle
+                            est arrivée dans ce monde.
+                        </p>
+
+                        <p>
+                            Je voulais prendre un instant pour te rappeler
+                            à quel point ton amitié compte pour moi.
+                            Certaines personnes entrent dans nos vies
+                            et finissent par y occuper une place que les mots
+                            ont parfois du mal à expliquer.
+                        </p>
+
+                        <p>
+                            Tu fais partie de ces personnes.
+                            Un ami, un frère, un compagnon de route
+                            avec qui les souvenirs, les rires et même
+                            les moments difficiles prennent une autre valeur.
+                        </p>
+
+                        <p>
+                            Je te souhaite de réussir tout ce que tu
+                            entreprendras. Que tu aies la force de poursuivre
+                            tes rêves, le courage de traverser les épreuves
+                            et la sagesse de profiter de chaque belle chose
+                            que la vie mettra sur ton chemin.
+                        </p>
+
+                        <p>
+                            N'oublie jamais que tu as encore tellement
+                            de belles choses à accomplir. Ton histoire
+                            ne fait que commencer, et j'espère sincèrement
+                            qu'elle sera remplie de bonheur, de réussite,
+                            de santé et de belles surprises.
+                        </p>
+
+                        <p class="letter-highlight">
+                            Le monde est immense, mais les vraies amitiés
+                            sont rares. Merci d'être l'une de ces belles
+                            rencontres que la vie m'a offertes.
+                        </p>
+
+                        <p>
+                            Profite de ta journée, souris, célèbre
+                            et n'oublie surtout pas de garder cette belle
+                            personne que tu es.
+                        </p>
+
+                        <p class="letter-ending">
+                            Joyeux anniversaire, mon frère ! ❤️
+                        </p>
+
+                        <div class="signature">
+                            <span>Ton frère,</span>
+                            <strong>Gilderic ❤️</strong>
+                        </div>
+
+                        <div class="letter-decoration">A</div>
+                    </div>
+                </article>
+
+                <p class="letter-footer">
+                    UNE FRATERNITÉ. UNE HISTOIRE. POUR TOUJOURS.
+                </p>
+
+                <button class="back-button" id="backButton">
+                    ← REVENIR À LA CÉLÉBRATION
+                </button>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="global-footer">
+        CONÇU AVEC <span>♥</span> POUR ARTHUR
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
